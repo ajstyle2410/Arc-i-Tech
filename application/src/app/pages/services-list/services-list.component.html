@@ -1,0 +1,72 @@
+<app-navbar></app-navbar>
+
+<!-- Hero Banner -->
+<section class="services-hero">
+  <div class="hero-orb orb-1"></div>
+  <div class="hero-orb orb-2"></div>
+  <div class="services-hero-content">
+    <div class="hero-badge">Our Services</div>
+    <h1 class="services-hero-title">Everything You Need to <span class="gradient-text">Succeed</span></h1>
+    <p class="services-hero-sub">From software development to career mentorship — 10 services crafted to help you build, grow, and thrive.</p>
+  </div>
+</section>
+
+<!-- Category Filter Tabs -->
+<section class="filter-section">
+  <div class="container">
+    <div class="filter-tabs">
+      <button *ngFor="let cat of categories"
+              (click)="setCategory(cat.id)"
+              class="filter-tab"
+              [class.active]="activeCategory === cat.id">
+        {{ cat.label }}
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Service Categories -->
+<section class="categories-section">
+  <div class="container">
+    <div *ngFor="let category of filteredCategories; let ci = index" class="category-block">
+      <div class="category-header">
+        <div>
+          <h2 class="category-name">{{ category.name }}</h2>
+          <p class="category-desc">{{ category.description }}</p>
+        </div>
+      </div>
+
+      <div class="services-grid">
+        <a *ngFor="let service of category.services; let si = index"
+           [routerLink]="['/service', service.id]"
+           class="service-card animate-fadeInUp"
+           [style.animation-delay]="(si * 0.1) + 's'">
+          <div class="card-accent-bar" [style.background]="service.color"></div>
+          <div class="service-icon-wrap" [style.background]="service.bgColor">
+            <lucide-icon [img]="service.icon" class="service-icon" [style.color]="service.color"></lucide-icon>
+          </div>
+          <h3 class="service-title">{{ service.title }}</h3>
+          <p class="service-desc">{{ service.description }}</p>
+          <span class="service-arrow" [style.color]="service.color">
+            Learn More
+            <lucide-icon [img]="ChevronRightIcon" class="chevron"></lucide-icon>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="services-cta">
+  <div class="cta-inner">
+    <h2>Not Sure Which Service Is Right for You?</h2>
+    <p>Our team is happy to help you identify the best solution for your needs.</p>
+    <a routerLink="/contact" class="btn-primary">
+      Talk to Our Team
+      <lucide-icon [img]="ArrowRightIcon" class="btn-icon"></lucide-icon>
+    </a>
+  </div>
+</section>
+
+<app-footer></app-footer>

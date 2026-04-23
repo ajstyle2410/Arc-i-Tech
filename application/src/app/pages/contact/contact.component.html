@@ -1,0 +1,115 @@
+<app-navbar></app-navbar>
+
+<!-- Hero -->
+<section class="contact-hero">
+  <div class="contact-hero-content">
+    <div class="hero-badge">Contact Us</div>
+    <h1 class="contact-hero-title">Let's Build Something <span class="gradient-text">Amazing Together</span></h1>
+    <p class="contact-hero-sub">Have a project in mind? Want to learn more about our services? We'd love to hear from you.</p>
+  </div>
+</section>
+
+<!-- Main Content -->
+<section class="contact-main">
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- Left: Info -->
+      <div class="contact-info">
+        <h2 class="contact-info-title">Get In Touch</h2>
+        <p class="contact-info-sub">Fill in the form and our team will get back to you within 24 hours.</p>
+
+        <div class="info-cards">
+          <div class="info-card">
+            <div class="info-icon-wrap location">
+              <lucide-icon [img]="MapPinIcon" class="info-icon"></lucide-icon>
+            </div>
+            <div>
+              <div class="info-label">Location</div>
+              <div class="info-value">Tech City, India</div>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon-wrap email">
+              <lucide-icon [img]="MailIcon" class="info-icon"></lucide-icon>
+            </div>
+            <div>
+              <div class="info-label">Email Us</div>
+              <a href="mailto:info@arcitechweb.com" class="info-value">info&#64;arcitechweb.com</a>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon-wrap phone">
+              <lucide-icon [img]="PhoneIcon" class="info-icon"></lucide-icon>
+            </div>
+            <div>
+              <div class="info-label">Call Us</div>
+              <a href="tel:+911234567890" class="info-value">+91 (123) 456-7890</a>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon-wrap hours">
+              <lucide-icon [img]="ClockIcon" class="info-icon"></lucide-icon>
+            </div>
+            <div>
+              <div class="info-label">Working Hours</div>
+              <div class="info-value">Mon–Sat, 9 AM – 7 PM IST</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <div class="contact-form-wrap">
+        <!-- Success Banner -->
+        <div *ngIf="submitted" class="success-banner animate-fadeInUp">
+          <lucide-icon [img]="CheckCircle2Icon" class="success-icon"></lucide-icon>
+          <div>
+            <div class="success-title">Message sent successfully!</div>
+            <div class="success-sub">We'll get back to you within 24 hours.</div>
+          </div>
+        </div>
+
+        <form *ngIf="!submitted" (ngSubmit)="onSubmit()" class="contact-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Full Name *</label>
+              <input type="text" [(ngModel)]="formData.name" name="name" class="form-input" placeholder="Your name" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email Address *</label>
+              <input type="email" [(ngModel)]="formData.email" name="email" class="form-input" placeholder="you@example.com" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Phone Number</label>
+              <input type="tel" [(ngModel)]="formData.phone" name="phone" class="form-input" placeholder="+91 XXXXX XXXXX" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Service Interested In</label>
+              <select [(ngModel)]="formData.service" name="service" class="form-input form-select">
+                <option value="">Select a service...</option>
+                <option *ngFor="let svc of services" [value]="svc">{{ svc }}</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Your Message *</label>
+            <textarea [(ngModel)]="formData.message" name="message" rows="5" class="form-input form-textarea" placeholder="Tell us about your project or requirements..." required></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn" [class.loading]="isLoading" [disabled]="isLoading">
+            <lucide-icon *ngIf="!isLoading" [img]="SendIcon" class="btn-icon"></lucide-icon>
+            <span *ngIf="isLoading" class="spinner"></span>
+            {{ isLoading ? 'Sending...' : 'Send Message' }}
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>

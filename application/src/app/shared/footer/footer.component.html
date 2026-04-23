@@ -1,0 +1,82 @@
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-inner">
+
+      <!-- Brand Column -->
+      <div class="footer-col footer-brand-col">
+        <a routerLink="/" class="footer-brand">
+          <div class="footer-brand-icon">
+            <lucide-icon [img]="HexagonIcon" class="footer-hex"></lucide-icon>
+          </div>
+          <span class="footer-brand-name">Arc-i-Tech</span>
+        </a>
+        <p class="footer-tagline">
+          Connecting businesses with innovative tech solutions and empowering individuals through expert mentorship.
+        </p>
+        <div class="social-links">
+          <a href="#" class="social-btn" aria-label="LinkedIn">
+            <lucide-icon [img]="LinkedinIcon" class="social-icon"></lucide-icon>
+          </a>
+          <a href="#" class="social-btn" aria-label="GitHub">
+            <lucide-icon [img]="GithubIcon" class="social-icon"></lucide-icon>
+          </a>
+          <a href="#" class="social-btn" aria-label="Twitter">
+            <lucide-icon [img]="TwitterIcon" class="social-icon"></lucide-icon>
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-col">
+        <h3 class="footer-col-title">Quick Links</h3>
+        <ul class="footer-links">
+          <li><a routerLink="/" class="footer-link">Home</a></li>
+          <li><a routerLink="/services" class="footer-link">Our Services</a></li>
+          <li><a routerLink="/about" class="footer-link">About Us</a></li>
+          <li><a routerLink="/contact" class="footer-link">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Services -->
+      <div class="footer-col">
+        <h3 class="footer-col-title">Services</h3>
+        <ul class="footer-links">
+          <li><a routerLink="/service/website-development" class="footer-link">Website Development</a></li>
+          <li><a routerLink="/service/mobile-apps" class="footer-link">Mobile Applications</a></li>
+          <li><a routerLink="/service/consulting" class="footer-link">Software Consulting</a></li>
+          <li><a routerLink="/service/mentorship" class="footer-link">Project Mentorship</a></li>
+          <li><a routerLink="/service/internship" class="footer-link">Internship Programs</a></li>
+          <li><a routerLink="/service/mock-tests" class="footer-link">Mock Tests</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="footer-col">
+        <h3 class="footer-col-title">Contact</h3>
+        <ul class="footer-contact-list">
+          <li class="footer-contact-item">
+            <lucide-icon [img]="MapPinIcon" class="contact-icon"></lucide-icon>
+            <span>Tech City, India</span>
+          </li>
+          <li class="footer-contact-item">
+            <lucide-icon [img]="MailIcon" class="contact-icon"></lucide-icon>
+            <a href="mailto:info@arcitechweb.com" class="footer-link">info&#64;arcitechweb.com</a>
+          </li>
+          <li class="footer-contact-item">
+            <lucide-icon [img]="PhoneIcon" class="contact-icon"></lucide-icon>
+            <a href="tel:+911234567890" class="footer-link">+91 (123) 456-7890</a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer Bottom -->
+  <div class="footer-bottom">
+    <div class="footer-inner">
+      <p class="footer-copy">&copy; {{ currentYear }} Arc-i-Tech. All rights reserved.</p>
+      <p class="footer-sub">Built with passion &mdash; Empowering Tech Futures</p>
+    </div>
+  </div>
+</footer>

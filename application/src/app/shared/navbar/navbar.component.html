@@ -1,0 +1,32 @@
+<nav class="navbar" [class.scrolled]="isScrolled()">
+  <div class="navbar-inner">
+    <!-- Logo -->
+    <a routerLink="/" class="navbar-brand" (click)="closeMobile()">
+      <div class="brand-icon-wrap">
+        <lucide-icon [img]="HexagonIcon" class="brand-icon"></lucide-icon>
+      </div>
+      <span class="brand-name">Arc-i-Tech</span>
+    </a>
+
+    <!-- Desktop Nav Links -->
+    <div class="nav-links">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="nav-link">Home</a>
+      <a routerLink="/services" routerLinkActive="active" class="nav-link">Services</a>
+      <a routerLink="/about" routerLinkActive="active" class="nav-link">About</a>
+      <a routerLink="/contact" routerLinkActive="active" class="nav-link nav-cta">Contact Us</a>
+    </div>
+
+    <!-- Mobile Hamburger -->
+    <button class="hamburger" (click)="toggleMobile()" aria-label="Toggle Menu">
+      <lucide-icon [img]="isMobileOpen() ? XIcon : MenuIcon" class="ham-icon"></lucide-icon>
+    </button>
+  </div>
+
+  <!-- Mobile Overlay Menu -->
+  <div class="mobile-menu" [class.open]="isMobileOpen()">
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="mobile-link" (click)="closeMobile()">Home</a>
+    <a routerLink="/services" routerLinkActive="active" class="mobile-link" (click)="closeMobile()">Services</a>
+    <a routerLink="/about" routerLinkActive="active" class="mobile-link" (click)="closeMobile()">About</a>
+    <a routerLink="/contact" routerLinkActive="active" class="mobile-link mobile-link-cta" (click)="closeMobile()">Contact Us</a>
+  </div>
+</nav>

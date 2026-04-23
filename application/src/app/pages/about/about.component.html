@@ -1,0 +1,123 @@
+<app-navbar></app-navbar>
+
+<!-- Hero -->
+<section class="about-hero">
+  <div class="hero-orb orb-1"></div>
+  <div class="hero-orb orb-2"></div>
+  <div class="about-hero-content">
+    <div class="hero-badge">About Us</div>
+    <h1 class="about-hero-title">Empowering Technology. <span class="gradient-text">Shaping Futures.</span></h1>
+    <p class="about-hero-sub">Arc-i-Tech is a dynamic tech startup dedicated to connecting businesses and individuals with outstanding software solutions and expert mentorship.</p>
+  </div>
+</section>
+
+<!-- Stats Bar -->
+<section class="about-stats">
+  <div class="about-stats-grid">
+    <div *ngFor="let stat of stats" class="about-stat-item">
+      <div class="about-stat-icon-wrap">
+        <lucide-icon [img]="stat.icon" class="about-stat-icon"></lucide-icon>
+      </div>
+      <div class="stat-number">{{ stat.value }}</div>
+      <div class="stat-label">{{ stat.label }}</div>
+    </div>
+  </div>
+</section>
+
+<!-- Mission & Vision -->
+<section class="mission-section">
+  <div class="container">
+    <div class="mission-grid">
+      <div class="mission-card">
+        <div class="mission-icon-wrap">
+          <lucide-icon [img]="TargetIcon" class="mission-icon"></lucide-icon>
+        </div>
+        <h2>Our Mission</h2>
+        <p>Arc-i-Tech is a dynamic tech startup dedicated to connecting businesses with innovative, comprehensive technical services. We believe in the power of technology to transform businesses and empower individuals.</p>
+        <p>Our mission is to provide accessible, high-quality tech services that help companies grow and individuals develop their technical skills.</p>
+      </div>
+      <div class="vision-card">
+        <div class="vision-icon-wrap">
+          <lucide-icon [img]="RocketIcon" class="vision-icon"></lucide-icon>
+        </div>
+        <h2>Our Vision</h2>
+        <p>To be a leading technology partner that empowers businesses with innovative solutions and develops a community of skilled technical professionals ready to tackle tomorrow's challenges.</p>
+        <p>We envision a world where top-quality tech expertise is accessible to every business and every aspiring developer — regardless of their background or resources.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Core Values -->
+<section class="values-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Our Core Values</h2>
+      <p class="section-subtitle">The principles that drive every decision we make</p>
+    </div>
+    <div class="values-grid">
+      <div *ngFor="let value of values" class="value-card">
+        <div class="value-icon-wrap" [style.background]="value.bg">
+          <lucide-icon [img]="value.icon" class="value-icon" [style.color]="value.color"></lucide-icon>
+        </div>
+        <h3 class="value-title" [style.color]="value.color">{{ value.title }}</h3>
+        <p class="value-desc">{{ value.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Timeline -->
+<section class="timeline-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Our Journey</h2>
+      <p class="section-subtitle">From a small idea to a growing tech powerhouse</p>
+    </div>
+    <div class="timeline">
+      <div *ngFor="let m of milestones; let i = index; let last = last" class="timeline-item" [class.right]="i % 2 === 1">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="timeline-year">{{ m.year }}</div>
+          <h3 class="timeline-title">{{ m.title }}</h3>
+          <p class="timeline-desc">{{ m.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Team Section -->
+<section class="team-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Meet Our Team</h2>
+      <p class="section-subtitle">Passionate professionals dedicated to your success</p>
+    </div>
+    <div class="team-grid">
+      <div *ngFor="let member of team" class="team-card">
+        <div class="team-avatar" [style.background]="'linear-gradient(135deg,' + member.color + ',' + member.color + 'aa)'">
+          {{ member.initials }}
+        </div>
+        <h3 class="team-name">{{ member.name }}</h3>
+        <p class="team-role" [style.color]="member.color">{{ member.role }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Choose Us -->
+<section class="why-us-section">
+  <div class="container">
+    <div class="why-us-inner">
+      <h2>Why Work With Arc-i-Tech?</h2>
+      <p>We combine technical excellence with genuine care for your success.</p>
+      <a routerLink="/contact" class="btn-primary">
+        Start a Conversation
+        <lucide-icon [img]="ArrowRightIcon" class="btn-icon"></lucide-icon>
+      </a>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>

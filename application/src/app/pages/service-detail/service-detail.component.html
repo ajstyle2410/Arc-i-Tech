@@ -1,0 +1,100 @@
+<app-navbar></app-navbar>
+
+<div *ngIf="service">
+  <!-- Hero Banner -->
+  <section class="detail-hero" [style.background]="'linear-gradient(135deg,' + service.color + '22 0%, ' + service.color + '11 100%)'">
+    <div class="hero-orb" [style.background]="'radial-gradient(circle,' + service.color + '33, transparent 70%)'"></div>
+    <div class="detail-hero-content">
+      <!-- Breadcrumb -->
+      <nav class="breadcrumb">
+        <a routerLink="/" class="bread-link">Home</a>
+        <span class="bread-sep">›</span>
+        <a routerLink="/services" class="bread-link">Services</a>
+        <span class="bread-sep">›</span>
+        <span class="bread-current">{{ service.title }}</span>
+      </nav>
+
+      <div class="detail-hero-grid">
+        <div class="detail-hero-text">
+          <div class="service-icon-hero-wrap" [style.background]="service.bgColor">
+            <lucide-icon [img]="service.icon" class="service-icon-hero" [style.color]="service.color"></lucide-icon>
+          </div>
+          <h1 class="detail-title">{{ service.title }}</h1>
+          <p class="detail-tagline">{{ service.tagline }}</p>
+          <a routerLink="/contact" class="btn-primary" [style.background]="'linear-gradient(135deg,' + service.color + ',' + service.color + 'dd)'">
+            Get Started
+            <lucide-icon [img]="ArrowRightIcon" class="btn-icon"></lucide-icon>
+          </a>
+        </div>
+        <div class="ideal-card">
+          <div class="ideal-label">Ideal For</div>
+          <p class="ideal-text">{{ service.ideal }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <section class="detail-content">
+    <div class="container">
+      <!-- Description -->
+      <div class="desc-card premium-card">
+        <h2 class="card-title">About This Service</h2>
+        <p class="desc-text">{{ service.fullDescription }}</p>
+      </div>
+
+      <!-- Features & Benefits Grid -->
+      <div class="features-grid">
+        <!-- Features -->
+        <div class="features-card premium-card">
+          <h2 class="card-title">Key Features</h2>
+          <ul class="feature-list">
+            <li *ngFor="let feature of service.features" class="feature-item">
+              <div class="check-wrap" [style.background]="service.bgColor">
+                <lucide-icon [img]="CheckCircle2Icon" class="check-icon" [style.color]="service.color"></lucide-icon>
+              </div>
+              <span>{{ feature }}</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Benefits -->
+        <div class="benefits-card premium-card">
+          <h2 class="card-title">Benefits</h2>
+          <div class="benefits-chips">
+            <span *ngFor="let benefit of service.benefits" class="benefit-chip" [style.background]="service.bgColor" [style.color]="service.color">
+              <lucide-icon [img]="StarIcon" class="chip-icon"></lucide-icon>
+              {{ benefit }}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="detail-cta" [style.background]="'linear-gradient(135deg,' + service.color + ' 0%,' + service.color + 'cc 100%)'">
+        <div class="detail-cta-icon-wrap">
+          <lucide-icon [img]="PhoneIcon" class="detail-cta-icon"></lucide-icon>
+        </div>
+        <div class="detail-cta-text">
+          <h3>Interested in {{ service.title }}?</h3>
+          <p>Get in touch with our team to discuss your requirements in detail.</p>
+        </div>
+        <a routerLink="/contact" class="cta-white-btn">
+          Contact Us Today
+          <lucide-icon [img]="ArrowRightIcon" class="btn-icon"></lucide-icon>
+        </a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- Not Found -->
+<div *ngIf="!service" class="not-found-wrap">
+  <div class="not-found-card">
+    <h2>Service Not Found</h2>
+    <p>The service you're looking for doesn't exist.</p>
+    <a routerLink="/services" class="btn-primary">Browse All Services</a>
+  </div>
+</div>
+
+<app-footer></app-footer>
