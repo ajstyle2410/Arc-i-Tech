@@ -1,169 +1,88 @@
 <app-navbar></app-navbar>
 
-<!-- ─── HERO SECTION ─── -->
-<section class="hero">
-  <div class="hero-bg-grid"></div>
-  <div class="hero-orb hero-orb-1"></div>
-  <div class="hero-orb hero-orb-2"></div>
+<div class="portal-wrapper">
+  <!-- Left Sidebar (Site Navigation) -->
+  <aside class="portal-left-sidebar">
+    <div class="sidebar-widget">
+      <h3>Company</h3>
+      <a routerLink="/" class="sidebar-link active">Dashboard Home</a>
+      <a routerLink="/about" class="sidebar-link">About Arc-i-Tech</a>
+      <a routerLink="/contact" class="sidebar-link">Get Support</a>
+      
+      <h3>Product Hub</h3>
+      <a routerLink="/services" class="sidebar-link">All Services</a>
+      <a routerLink="/service/saas-incubation" class="sidebar-link">SaaS Products</a>
+      <a routerLink="/service/cloud-architecture" class="sidebar-link">Cloud DevOps</a>
+      <a routerLink="/service/ai-ml-solutions" class="sidebar-link">AI Solutions</a>
+    </div>
+  </aside>
 
-  <div class="hero-content">
-    <div class="hero-badge animate-fadeInUp">
-      <span class="badge-dot"></span>
-      Innovative Tech Solutions
+  <!-- Center Feed -->
+  <main class="portal-main-feed">
+    
+    <div class="feed-header">
+      <h1>Engineering Solutions Feed</h1>
+      <p>Browse our integrated suite of enterprise capabilities, designed for scalability.</p>
     </div>
 
-    <h1 class="hero-title animate-fadeInUp delay-100">
-      Build. Grow. <span class="gradient-text">Succeed</span><br>with Arc-i-Tech
-    </h1>
-
-    <p class="hero-subtitle animate-fadeInUp delay-200">
-      Your trusted partner for software development, project mentorship, and career growth.
-      Connect with clients, track progress, and unlock your potential.
-    </p>
-
-    <div class="hero-actions animate-fadeInUp delay-300">
-      <a routerLink="/services" class="btn-primary">
-        Explore Services
-        <lucide-icon [img]="ArrowRightIcon" class="btn-icon"></lucide-icon>
-      </a>
-      <a routerLink="/contact" class="btn-outline">
-        Get In Touch
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ─── STATS BAR ─── -->
-<section class="stats-section">
-  <div class="stats-grid">
-    <div *ngFor="let stat of stats; let i = index" class="stat-item animate-fadeInUp" [style.animation-delay]="(i * 0.1) + 's'">
-      <div class="stat-icon-wrap">
-        <lucide-icon [img]="stat.icon" class="stat-icon"></lucide-icon>
-      </div>
-      <div class="stat-number">{{ stat.value }}</div>
-      <div class="stat-label">{{ stat.label }}</div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── SERVICES SECTION ─── -->
-<section class="services-section">
-  <div class="container">
-    <div class="section-header">
-      <h2 class="section-title">What We Offer</h2>
-      <p class="section-subtitle">
-        From software development to career mentorship — we have everything you need to thrive.
-      </p>
-    </div>
-
-    <div class="services-grid">
-      <a *ngFor="let service of services; let i = index"
-         [routerLink]="['/service', service.id]"
-         class="service-card animate-fadeInUp"
-         [style.animation-delay]="(i * 0.07) + 's'">
-        <div class="service-icon-wrap" [style.background]="service.bgColor">
-          <lucide-icon [img]="service.icon" class="service-icon" [style.color]="service.color"></lucide-icon>
-        </div>
-        <h3 class="service-title">{{ service.title }}</h3>
-        <p class="service-desc">{{ service.description }}</p>
-        <span class="service-link" [style.color]="service.color">
-          Learn More
-          <lucide-icon [img]="ChevronRightIcon" class="chevron-icon"></lucide-icon>
-        </span>
-      </a>
-    </div>
-
-    <div class="view-all-wrap">
-      <a routerLink="/services" class="btn-primary">
-        View All Services
-        <lucide-icon [img]="ArrowRightIcon" class="btn-icon"></lucide-icon>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ─── WHY CHOOSE US ─── -->
-<section class="why-section">
-  <div class="container">
-    <div class="section-header why-header">
-      <h2 class="section-title light">Why Choose Arc-i-Tech?</h2>
-      <p class="section-subtitle light">We don't just deliver projects — we build lasting partnerships.</p>
-    </div>
-
-    <div class="why-grid">
-      <div class="why-card">
-        <div class="why-icon-wrap">
-          <lucide-icon [img]="RocketIcon" class="why-icon"></lucide-icon>
-        </div>
-        <h3>Fast &amp; Reliable</h3>
-        <p>Quick turnaround times without ever compromising quality or best practices.</p>
-      </div>
-      <div class="why-card">
-        <div class="why-icon-wrap">
-          <lucide-icon [img]="StarIcon" class="why-icon"></lucide-icon>
-        </div>
-        <h3>Expert Team</h3>
-        <p>Experienced professionals with proven track records across diverse technologies.</p>
-      </div>
-      <div class="why-card">
-        <div class="why-icon-wrap">
-          <lucide-icon [img]="RocketIcon" class="why-icon"></lucide-icon>
-        </div>
-        <h3>Transparent Process</h3>
-        <p>Track your project progress with one click. No surprises, just results.</p>
-      </div>
-      <div class="why-card">
-        <div class="why-icon-wrap">
-          <lucide-icon [img]="StarIcon" class="why-icon"></lucide-icon>
-        </div>
-        <h3>Customer First</h3>
-        <p>We closely work with you to understand your needs and deliver tailored solutions.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── TESTIMONIALS ─── -->
-<section class="testimonials-section">
-  <div class="container">
-    <div class="section-header">
-      <h2 class="section-title">What Our Clients Say</h2>
-      <p class="section-subtitle">Real stories from real people who've experienced the Arc-i-Tech difference.</p>
-    </div>
-
-    <div class="testimonials-grid">
-      <div *ngFor="let t of testimonials; let i = index" class="testimonial-card animate-fadeInUp" [style.animation-delay]="(i * 0.15) + 's'">
-        <div class="stars">
-          <span *ngFor="let s of [1,2,3,4,5]">⭐</span>
-        </div>
-        <p class="testimonial-text">"{{ t.text }}"</p>
-        <div class="testimonial-author">
-          <div class="author-avatar">{{ t.name[0] }}</div>
-          <div>
-            <div class="author-name">{{ t.name }}</div>
-            <div class="author-role">{{ t.role }}</div>
+    <!-- Product Feed Grid -->
+    <div class="services-masonry">
+      <!-- We slice to 6 so it's a tight feed -->
+      <a *ngFor="let service of services" [routerLink]="['/service', service.id]" class="feed-card animate-fadeInUp">
+        <div class="feed-card-header">
+          <div class="icon-orb" [style.background]="service.bgColor">
+            <lucide-icon [img]="service.icon" class="feed-card-icon" [style.color]="service.color"></lucide-icon>
           </div>
+          <span class="feed-card-badge">Premium</span>
+        </div>
+        
+        <h3>{{ service.title }}</h3>
+        <p>{{ service.description }}</p>
+        
+        <div class="feed-card-footer">
+          <span class="read-more">View Product <lucide-icon [img]="ArrowRightIcon" class="inline-icon"></lucide-icon></span>
+        </div>
+      </a>
+    </div>
+
+  </main>
+
+  <!-- Right Sidebar (Ads / Stats) -->
+  <aside class="portal-right-sidebar">
+    
+    <!-- Promoted Ad Block -->
+    <div class="sidebar-ad">
+      <h3>Need Custom Software?</h3>
+      <p>Join top tier clients who trust our infrastructure.</p>
+      <a routerLink="/contact" class="btn-primary auth-btn">Hire the Team</a>
+    </div>
+
+    <!-- Live Stats Widget -->
+    <div class="sidebar-widget stats-widget">
+      <h3>Platform Statistics</h3>
+      <div *ngFor="let stat of stats" class="stat-mini">
+        <lucide-icon [img]="stat.icon" class="stat-mini-icon"></lucide-icon>
+        <div class="stat-mini-info">
+          <strong>{{ stat.value }}</strong>
+          <span>{{ stat.label }}</span>
         </div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ─── CTA SECTION ─── -->
-<section class="cta-section">
-  <div class="cta-inner">
-    <h2 class="cta-title">Ready to Start Your Project?</h2>
-    <p class="cta-sub">Let's turn your ideas into reality. Connect with our expert team today.</p>
-    <div class="cta-actions">
-      <a routerLink="/contact" class="btn-primary">
-        Get Started Now
-        <lucide-icon [img]="ArrowRightIcon" class="btn-icon"></lucide-icon>
-      </a>
-      <a routerLink="/services" class="btn-outline">
-        Browse Services
-      </a>
+    <!-- Testimonial Highlight -->
+    <div class="sidebar-widget promo-widget" *ngIf="testimonials.length > 0">
+      <h3>Featured Success</h3>
+      <p class="quote">"{{ testimonials[0].text }}"</p>
+      <div class="quote-author">
+        <strong>- {{ testimonials[0].name }}</strong>
+        <span>{{ testimonials[0].role }}</span>
+      </div>
+      <div class="stars">
+        <lucide-icon *ngFor="let i of [1,2,3,4,5]" [img]="StarIcon" class="star"></lucide-icon>
+      </div>
     </div>
-  </div>
-</section>
+
+  </aside>
+</div>
 
 <app-footer></app-footer>

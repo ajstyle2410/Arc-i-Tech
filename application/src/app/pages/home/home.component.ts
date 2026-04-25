@@ -7,14 +7,13 @@ import {
 } from 'lucide-angular';
 import { NavbarComponent } from '../../shared/navbar/navbar.component';
 import { FooterComponent } from '../../shared/footer/footer.component';
-import { BrandNameComponent } from '../../common/brand-name/brand-name.component';
 import { DataService } from '../../core/services/data.service';
 import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, RouterModule, LucideAngularModule, NavbarComponent, FooterComponent, BrandNameComponent],
+  imports: [CommonModule, RouterModule, LucideAngularModule, NavbarComponent, FooterComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'

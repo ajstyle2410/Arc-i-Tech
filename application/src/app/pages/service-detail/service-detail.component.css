@@ -40,12 +40,12 @@
   transition: color 0.2s;
 }
 
-.bread-link:hover { color: #6366f1; }
+.bread-link:hover { color: #112d4e; }
 
 .bread-sep { color: #cbd5e1; }
 
 .bread-current {
-  color: #6366f1;
+  color: #112d4e;
   font-weight: 600;
 }
 
@@ -135,7 +135,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: #6366f1;
+  color: #112d4e;
   margin-bottom: 10px;
 }
 
@@ -167,8 +167,8 @@
 }
 
 .premium-card:hover {
-  box-shadow: 0 8px 32px rgba(99,102,241,0.1);
-  border-color: rgba(99,102,241,0.2);
+  box-shadow: 0 8px 32px rgba(17,45,78,0.1);
+  border-color: rgba(17,45,78,0.2);
 }
 
 .card-title {
@@ -344,3 +344,7 @@
   color: #64748b;
   margin-bottom: 28px;
 }
+
+
+
+

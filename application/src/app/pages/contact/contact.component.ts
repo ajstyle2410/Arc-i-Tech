@@ -28,16 +28,14 @@ export class ContactComponent {
   readonly MessageSquareIcon = MessageSquare;
 
   services = [
-    'Website Development',
-    'Desktop Applications',
-    'Android Applications',
-    'Software Consulting',
-    'Engineering Projects',
-    'Project Mentorship',
-    'Mock Interviews / Placement',
-    'Internship Programs',
-    'Technical Competency Program',
-    'Mock Tests',
+    'SaaS Product Incubation',
+    'Enterprise Web Apps',
+    'Mobile App Engineering',
+    'Cloud Architecture & DevOps',
+    'UI/UX Engineering',
+    'API & Microservices',
+    'AI & Data Solutions',
+    'Legacy Modernization',
     'Other / General Inquiry'
   ];
 

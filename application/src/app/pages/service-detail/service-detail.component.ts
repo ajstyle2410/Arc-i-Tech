@@ -4,7 +4,7 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
 import {
   LucideAngularModule, ArrowLeft, CheckCircle2, Star,
   Code2, Globe, Smartphone, BrainCircuit, GraduationCap,
-  Lightbulb, Users, ClipboardCheck, BookOpen, Trophy, ArrowRight, Phone
+  Lightbulb, Users, ClipboardCheck, BookOpen, Trophy, ArrowRight, Phone, Rocket, Server, Database
 } from 'lucide-angular';
 import { NavbarComponent } from '../../shared/navbar/navbar.component';
 import { FooterComponent } from '../../shared/footer/footer.component';
@@ -41,105 +41,85 @@ export class ServiceDetailComponent implements OnInit {
   service: ServiceDetail | null = null;
 
   services: Record<string, ServiceDetail> = {
-    'software-development': {
-      id: 'software-development',
-      title: 'Desktop Applications',
-      tagline: 'Powerful cross-platform applications built for performance',
-      fullDescription: 'We develop comprehensive desktop software solutions that solve complex business problems. From simple utilities to enterprise-grade applications, our team builds scalable, maintainable software using modern frameworks.',
-      icon: Code2, color: '#6366f1', bgColor: 'rgba(99,102,241,0.1)',
-      features: ['Custom application development', 'System architecture design', 'API development & integration', 'Cloud-based solutions', 'Enterprise software', 'Cross-platform (Windows, Mac, Linux)'],
-      benefits: ['Tailored to your specific needs', 'Scalable & maintainable codebase', 'Ongoing support & maintenance', 'Cost-effective development', 'Fast performance'],
-      ideal: 'Businesses needing powerful offline or enterprise-grade desktop software solutions.'
+    'saas-incubation': {
+      id: 'saas-incubation',
+      title: 'SaaS Product Incubation',
+      tagline: 'Transform your vision into a highly scalable SaaS platform.',
+      fullDescription: 'We handle everything from the initial database architecture and multi-tenant logic to front-end development, secure payment gateways, and automated CI/CD deployments. Perfect for startups and enterprises launching new subscription products.',
+      icon: Rocket, color: 'var(--brand-primary)', bgColor: 'rgba(17,45,78,0.1)',
+      features: ['Multi-tenant architecture design', 'Scalable database modeling', 'Stripe/Braintree subscription integration', 'User role & permission management', 'Automated CI/CD pipelines', 'White-labeling capabilities'],
+      benefits: ['Rapid time-to-market', 'Highly scalable foundation', 'Predictable development costs', 'Enterprise-grade security natively', 'Seamless user onboarding'],
+      ideal: 'Funded startups and enterprise innovation labs looking to launch subscription-based software.'
     },
-    'website-development': {
-      id: 'website-development',
-      title: 'Website Development',
-      tagline: 'Modern, responsive websites that drive real business results',
-      fullDescription: 'We create stunning, responsive websites that not only look great but also drive business results. From landing pages to full e-commerce platforms, we build experiences that convert visitors into customers.',
-      icon: Globe, color: '#8b5cf6', bgColor: 'rgba(139,92,246,0.1)',
-      features: ['Responsive web design', 'E-commerce platforms', 'Content management systems', 'SEO optimization', 'Performance optimization', 'Progressive Web Apps (PWA)'],
-      benefits: ['Mobile-first design', 'Fast loading times', 'User-friendly interfaces', 'Scalable architecture', 'Improved search rankings'],
-      ideal: 'Startups, SMEs, and enterprises wanting a professional, high-performing online presence.'
+    'enterprise-web': {
+      id: 'enterprise-web',
+      title: 'Enterprise Web Apps',
+      tagline: 'Secure, high-performance web applications built for complexity.',
+      fullDescription: 'We engineer secure, high-performance web applications tailored to streamline your complex business workflows. Utilizing robust modern frameworks (Angular, React, Spring Boot), we deliver responsive web portals equipped with deep analytics, real-time data sync, and enterprise-grade security.',
+      icon: Globe, color: 'var(--brand-secondary)', bgColor: 'rgba(63,114,175,0.1)',
+      features: ['Custom workflow automation', 'Deep ERP/CRM data integration', 'Real-time analytics dashboards', 'Role-based access control (RBAC)', 'SSO & Active Directory integration', 'High-availability infrastructure'],
+      benefits: ['Eliminate manual operational bottlenecks', 'Enhance data visibility & accuracy', 'Reduce long-term licensing costs', 'Secure, highly available deployment', 'Tailored exactly to your business logic'],
+      ideal: 'Mid-to-large cap enterprises needing bespoke internal tooling or client-facing portals.'
     },
-    'mobile-apps': {
-      id: 'mobile-apps',
-      title: 'Android Applications',
-      tagline: 'Native Android apps that users love',
-      fullDescription: 'We build native Android applications that deliver seamless user experiences with excellent performance. From concept to Play Store, we handle the entire mobile development lifecycle.',
-      icon: Smartphone, color: '#06b6d4', bgColor: 'rgba(6,182,212,0.1)',
-      features: ['Native Android development', 'Cross-platform (Flutter/React Native)', 'App Store deployment', 'Push notifications', 'Offline functionality', 'In-app payments'],
-      benefits: ['Native performance', 'Offline functionality', 'Smooth user experience', 'Seamless integrations', 'Play Store optimized'],
-      ideal: 'Businesses and startups looking to reach customers on mobile devices.'
+    'mobile-development': {
+      id: 'mobile-development',
+      title: 'Mobile App Engineering',
+      tagline: 'Native and cross-platform mobile experiences that engage.',
+      fullDescription: 'Native and cross-platform (Flutter/React Native) mobile experiences engineered for maximum user engagement. We optimize apps for high frame rates, low battery consumption, and seamless offline synchronization so your product excels on both iOS and Android stores.',
+      icon: Smartphone, color: 'var(--brand-accent)', bgColor: 'rgba(219,226,239,0.5)',
+      features: ['Cross-platform (Flutter/React Native)', 'Native iOS (Swift) & Android (Kotlin)', 'Offline-first data synchronization', 'Advanced push notification campaigns', 'Hardware & sensor integration', 'App Store & Google Play deployment'],
+      benefits: ['Unified codebase for faster iteration', 'Fluid 60FPS animations', 'Robust offline capabilities', 'Higher user retention rates', 'Rapid feature deployments'],
+      ideal: 'Companies wanting to capture the mobile market with high-performance consumer or B2B apps.'
     },
-    'consulting': {
-      id: 'consulting',
-      title: 'Software Consulting',
-      tagline: 'Expert strategic guidance for your tech initiatives',
-      fullDescription: 'Our experienced consultants provide strategic guidance for your technology projects. We assess your current systems, identify improvements, and create a roadmap for scalable, future-proof solutions.',
-      icon: BrainCircuit, color: '#f59e0b', bgColor: 'rgba(245,158,11,0.1)',
-      features: ['Technology assessment', 'Architecture consulting', 'Best practices guidance', 'Risk analysis', 'Team training', 'Digital transformation roadmap'],
-      benefits: ['Expert insights without full-time cost', 'Risk mitigation', 'Optimized tech stack', 'Knowledge transfer', 'Unbiased recommendations'],
-      ideal: 'Companies making critical technology decisions or facing complex technical challenges.'
+    'cloud-architecture': {
+      id: 'cloud-architecture',
+      title: 'Cloud Architecture & DevOps',
+      tagline: 'Robust, auto-scaling foundations for zero-downtime applications.',
+      fullDescription: 'Build a serverless or containerized foundation on AWS, GCP, or Azure. We design fault-tolerant, auto-scaling cloud architectures, coupled with comprehensive Kubernetes and Docker pipelines to ensure zero-downtime deployments and rapid iterative development.',
+      icon: Server, color: 'var(--brand-primary)', bgColor: 'rgba(17,45,78,0.1)',
+      features: ['AWS / GCP / Azure migrations', 'Kubernetes & Docker orchestration', 'Serverless computing setups', 'Infrastructure as Code (Terraform)', '24/7 monitoring & alerting', 'Automated security patching'],
+      benefits: ['Zero-downtime deployments', 'Auto-scaling during traffic spikes', 'Reduced server overhead costs', 'Disaster recovery guarantees', 'Accelerated developer velocity'],
+      ideal: 'Products experiencing rapid growth that require industrial-grade reliability and scalability.'
     },
-    'engineering-projects': {
-      id: 'engineering-projects',
-      title: 'Engineering Projects',
-      tagline: 'Complete project support from concept to completion',
-      fullDescription: 'Complete end-to-end support for engineering and final year projects. We help students and professionals conceptualize, design, implement, and document their projects with expert guidance at every step.',
-      icon: GraduationCap, color: '#10b981', bgColor: 'rgba(16,185,129,0.1)',
-      features: ['Project ideation & planning', 'Technical implementation', 'Testing & quality assurance', 'Comprehensive documentation', 'Presentation preparation', 'Live demo support'],
-      benefits: ['Professional guidance', 'Quality assured deliverables', 'Timely completion', 'Industry-standard practices', 'High grades & recognition'],
-      ideal: 'Engineering students needing expert help with final year or semester projects.'
+    'ux-ui': {
+      id: 'ux-ui',
+      title: 'UI/UX Engineering',
+      tagline: 'Data-driven designs that decisively increase user conversion.',
+      fullDescription: 'Data-driven user experiences and interface designs that decisively increase user retention and conversion. Our design team blends behavioral psychology with crisp, modern aesthetics to deliver intuitive user layouts, interactive prototypes, and comprehensive design systems.',
+      icon: Lightbulb, color: 'var(--brand-secondary)', bgColor: 'rgba(63,114,175,0.1)',
+      features: ['Comprehensive user research', 'Wireframing & interactive prototyping', 'Behavioral flow analysis', 'Custom design system creation', 'Accessibility (WCAG) compliance', 'Micro-interaction animations'],
+      benefits: ['Higher user conversion rates', 'Lower customer support volume', 'Consistent brand identity', 'Accessible to all users', 'Faster subsequent visual updates'],
+      ideal: 'Software products suffering from high churn rates or complex, unintuitive workflows.'
     },
-    'mentorship': {
-      id: 'mentorship',
-      title: 'Project Mentorship',
-      tagline: 'One-on-one guidance when you need it most',
-      fullDescription: 'Personalized one-on-one mentorship to guide you through your project challenges. Our mentors have real industry experience and know exactly how to unblock you and accelerate your progress.',
-      icon: Lightbulb, color: '#f43f5e', bgColor: 'rgba(244,63,94,0.1)',
-      features: ['1-on-1 guidance sessions', 'Code reviews & feedback', 'Architecture guidance', 'Debugging & problem solving', 'Best practices training', 'Flexible scheduling'],
-      benefits: ['Expert knowledge on demand', 'Personalized learning path', 'Faster skill growth', 'Improved project quality', 'Career clarity'],
-      ideal: 'Students, developers, and professionals who want expert guidance for their projects.'
+    'api-integration': {
+      id: 'api-integration',
+      title: 'API & Microservices',
+      tagline: 'Seamlessly connect your digital ecosystem.',
+      fullDescription: 'We design robust, RESTful, and GraphQL APIs to seamlessly connect your digital ecosystem. Whether you need to decompose a monolith into scalable microservices or integrate with legacy third-party CRM and ERP databases, we ensure flawless data communication.',
+      icon: Code2, color: 'var(--brand-primary)', bgColor: 'rgba(17,45,78,0.1)',
+      features: ['RESTful & GraphQL API development', 'Monolith to microservice decomposition', 'Third-party (Stripe, Twilio, Salesforce) integration', 'API Gateway & load balancing', 'Secure API authentication (OAuth2/JWT)', 'Extensive API documentation'],
+      benefits: ['Decoupled, scalable systems', 'Easier integration for future partners', 'Faster parallel development', 'Enhanced platform security', 'Reliable data synchronization'],
+      ideal: 'Companies trapped by monolithic codebases or needing deep integration with external platforms.'
     },
-    'interviews': {
-      id: 'interviews',
-      title: 'Mock Interviews & Placement',
-      tagline: 'Land your dream job with confidence',
-      fullDescription: 'Realistic mock interview experiences with industry professionals to help you ace your actual interviews. We cover technical rounds, HR rounds, aptitude, and provide detailed actionable feedback.',
-      icon: Users, color: '#6366f1', bgColor: 'rgba(99,102,241,0.1)',
-      features: ['Technical interview simulations', 'HR round practice', 'Aptitude test preparation', 'Resume & LinkedIn review', 'Detailed performance feedback', 'Placement guidance'],
-      benefits: ['Build confidence', 'Identify weak areas early', 'Improve communication skills', 'Better job placement odds', 'Industry-aligned preparation'],
-      ideal: 'Students and professionals preparing for technical interviews at top companies.'
+    'ai-ml-solutions': {
+      id: 'ai-ml-solutions',
+      title: 'AI & Data Solutions',
+      tagline: 'Intelligent automation to extract actionable insights.',
+      fullDescription: 'Incorporate intelligent data models into your application. From generative AI integrations, NLP chatbots, to predictive analytics engines, we help you leverage machine learning to automate operations and extract actionable insights from your data warehouse.',
+      icon: BrainCircuit, color: 'var(--brand-secondary)', bgColor: 'rgba(63,114,175,0.1)',
+      features: ['LLM & generative AI integration', 'Natural Language Processing (NLP)', 'Predictive analytics modeling', 'Automated data pipelines', 'Custom recommendation engines', 'Computer vision integration'],
+      benefits: ['Automated customer support', 'Data-driven decision making', 'Highly personalized user experiences', 'Reduced manual operational workloads', 'Uncovered revenue opportunities'],
+      ideal: 'Data-rich businesses seeking to automate manual workflows or provide intelligent user features.'
     },
-    'internship': {
-      id: 'internship',
-      title: 'Internship Programs',
-      tagline: 'Real experience, real certificates, real impact',
-      fullDescription: 'Structured internship programs that provide genuine hands-on experience with real projects. Interns work alongside experienced professionals, gaining skills that employers actually value.',
-      icon: ClipboardCheck, color: '#8b5cf6', bgColor: 'rgba(139,92,246,0.1)',
-      features: ['Hands-on project work', 'Dedicated mentor per intern', 'Industry exposure', 'Completion certificate', 'Portfolio building projects', 'Professional networking'],
-      benefits: ['Real-world experience', 'Strong portfolio additions', 'Networking opportunities', 'Career direction clarity', 'Letter of recommendation'],
-      ideal: 'Students and fresh graduates looking for meaningful work experience and industry exposure.'
-    },
-    'tutoring': {
-      id: 'tutoring',
-      title: 'Technical Competency Program',
-      tagline: 'Build skills that employers are hiring for right now',
-      fullDescription: 'Comprehensive structured programs designed to build professional-grade technical competencies. Learn from expert practitioner-instructors who have worked at top companies.',
-      icon: BookOpen, color: '#06b6d4', bgColor: 'rgba(6,182,212,0.1)',
-      features: ['Structured curriculum', 'Hands-on projects', 'Expert practitioner trainers', 'Flexible scheduling', 'Lifetime access to materials', 'Live doubt sessions'],
-      benefits: ['Enhanced technical skillset', 'Industry-relevant knowledge', 'Certification on completion', 'Career advancement', 'Practical project experience'],
-      ideal: 'Anyone wanting to upskill or transition into a technical role in the software industry.'
-    },
-    'mock-tests': {
-      id: 'mock-tests',
-      title: 'Mock Tests',
-      tagline: 'Assess, improve, and ace your exams',
-      fullDescription: 'Comprehensive timed test series to evaluate your preparation level and identify areas for improvement. Detailed analytics help you understand your strengths and focus your study efforts.',
-      icon: Trophy, color: '#10b981', bgColor: 'rgba(16,185,129,0.1)',
-      features: ['Multiple difficulty levels', 'Detailed explanations', 'Performance analytics dashboard', 'Timed assessments', 'Topic-wise analysis', 'Progress tracking over time'],
-      benefits: ['Accurate self-assessment', 'Clear progress visibility', 'Improved test scores', 'Confidence building', 'Time management practice'],
-      ideal: 'Students preparing for competitive exams, placements, or technical assessments.'
+    'legacy-modernization': {
+      id: 'legacy-modernization',
+      title: 'Legacy Modernization',
+      tagline: 'Revitalize aging codebases without disrupting business.',
+      fullDescription: 'Revitalize aging codebases without disrupting active business operations. We safely migrate legacy monolithic architectures into modern cloud-native frameworks, enhancing execution speeds, security posture, and overall maintainability for the future.',
+      icon: Database, color: 'var(--brand-accent)', bgColor: 'rgba(219,226,239,0.5)',
+      features: ['Strangler fig migration pattern', 'Codebase refactoring & cleanup', 'Legacy database migration', 'Automated testing implementation', 'Cloud-native framework adoption', 'Security vulnerability patching'],
+      benefits: ['Zero disruption to critical operations', 'Elimination of technical debt', 'Faster future feature development', 'Restored security compliance', 'Happier engineering teams'],
+      ideal: 'Established enterprises reliant on outdated, hard-to-maintain software systems.'
     }
   };
 

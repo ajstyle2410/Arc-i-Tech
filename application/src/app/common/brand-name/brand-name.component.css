@@ -8,7 +8,7 @@
   align-items: baseline;
   gap: 0;
   font-weight: 800;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  background: linear-gradient(135deg, #112d4e, #3F72AF);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -20,6 +20,7 @@
 .brand-i {
   font-style: italic;
   -webkit-text-fill-color: transparent;
+  
 }
 
 /* Red dot — overrides the transparent gradient fill */
@@ -31,3 +32,5 @@
   background-clip: unset;
   font-style: normal;
 } */
+
+

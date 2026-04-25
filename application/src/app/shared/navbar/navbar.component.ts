@@ -1,7 +1,7 @@
 import { Component, HostListener, signal, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, RouterLinkActive } from '@angular/router';
-import { LucideAngularModule, Hexagon, Menu, X } from 'lucide-angular';
+import { LucideAngularModule, Menu, X, Search, Moon, User } from 'lucide-angular';
 import { BrandNameComponent } from '../../common/brand-name/brand-name.component';
 
 @Component({
@@ -13,9 +13,11 @@ import { BrandNameComponent } from '../../common/brand-name/brand-name.component
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
-  readonly HexagonIcon = Hexagon;
   readonly MenuIcon = Menu;
   readonly XIcon = X;
+  readonly SearchIcon = Search;
+  readonly MoonIcon = Moon;
+  readonly UserIcon = User;
 
   isScrolled = signal(false);
   isMobileOpen = signal(false);

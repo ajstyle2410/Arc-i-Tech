@@ -1,4 +1,4 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { Component, OnInit, OnDestroy, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import {
@@ -7,6 +7,8 @@ import {
 } from 'lucide-angular';
 import { NavbarComponent } from '../../shared/navbar/navbar.component';
 import { FooterComponent } from '../../shared/footer/footer.component';
+import { DataService } from '../../core/services/data.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-about',
@@ -16,7 +18,7 @@ import { FooterComponent } from '../../shared/footer/footer.component';
   templateUrl: './about.component.html',
   styleUrl: './about.component.css'
 })
-export class AboutComponent {
+export class AboutComponent implements OnInit, OnDestroy {
   readonly ZapIcon = Zap;
   readonly HeartIcon = Heart;
   readonly MessageCircleIcon = MessageCircle;
@@ -76,10 +78,18 @@ export class AboutComponent {
     { name: 'Sneha Patil', role: 'Mentorship Head', initials: 'SP', color: '#10b981' }
   ];
 
-  stats = [
-    { value: '50+', label: 'Projects Delivered', icon: Rocket },
-    { value: '100+', label: 'Happy Clients', icon: Award },
-    { value: '5+', label: 'Years Experience', icon: Clock },
-    { value: '95%', label: 'Client Satisfaction', icon: TrendingUp }
-  ];
+  stats: any[] = [];
+  private subs = new Subscription();
+
+  constructor(private dataService: DataService) {}
+
+  ngOnInit() {
+    this.subs.add(
+      this.dataService.getStats().subscribe(data => this.stats = data)
+    );
+  }
+
+  ngOnDestroy() {
+    this.subs.unsubscribe();
+  }
 }

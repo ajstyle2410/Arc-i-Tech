@@ -1,32 +1,66 @@
 <nav class="navbar" [class.scrolled]="isScrolled()">
-  <div class="navbar-inner">
-    <!-- Logo -->
-    <a routerLink="/" class="navbar-brand" (click)="closeMobile()">
-      <div class="brand-icon-wrap">
-        <img src="arcitech.png" alt="Arc-i-Tech Logo" class="brand-icon">
+  <div class="navbar-main">
+    <div class="navbar-inner">
+      
+      <!-- Brand & Mobile Toggle Wrapper -->
+      <div class="brand-toggle-wrapper">
+        <button class="hamburger" (click)="toggleMobile()" aria-label="Toggle Menu">
+          <lucide-icon [img]="isMobileOpen() ? XIcon : MenuIcon" class="ham-icon"></lucide-icon>
+        </button>
+        <a routerLink="/" class="navbar-brand" (click)="closeMobile()">
+          <div class="brand-icon-wrap">
+            <img src="arcitech.png" alt="Arc-i-Tech Logo" class="brand-icon">
+          </div>
+          <app-brand-name className="navbar-brand-name"></app-brand-name>
+        </a>
       </div>
-      <app-brand-name className="navbar-brand-name"></app-brand-name>
-    </a>
 
-    <!-- Desktop Nav Links -->
-    <div class="nav-links">
-      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="nav-link">Home</a>
-      <a routerLink="/services" routerLinkActive="active" class="nav-link">Services</a>
-      <a routerLink="/about" routerLinkActive="active" class="nav-link">About</a>
-      <a routerLink="/contact" routerLinkActive="active" class="nav-link nav-cta">Contact Us</a>
+      <!-- Search Bar -->
+      <div class="nav-search-container">
+        <lucide-icon [img]="SearchIcon" class="search-icon"></lucide-icon>
+        <input type="text" placeholder="Search services, products, tools..." class="nav-search-input">
+      </div>
+
+      <!-- Utility Actions -->
+      <div class="nav-actions">
+        <button class="icon-btn" aria-label="Toggle Dark Mode">
+          <lucide-icon [img]="MoonIcon" class="action-icon"></lucide-icon>
+        </button>
+        <a routerLink="/contact" class="auth-btn btn-outline">
+          Get in Touch
+        </a>
+        <button class="auth-btn btn-primary">
+          Sign In
+        </button>
+      </div>
+
     </div>
+  </div>
 
-    <!-- Mobile Hamburger -->
-    <button class="hamburger" (click)="toggleMobile()" aria-label="Toggle Menu">
-      <lucide-icon [img]="isMobileOpen() ? XIcon : MenuIcon" class="ham-icon"></lucide-icon>
-    </button>
+  <!-- Secondary Categories Strip -->
+  <div class="navbar-categories">
+    <div class="navbar-categories-inner">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="category-link">Home</a>
+      <a routerLink="/services" routerLinkActive="active" class="category-link">Services</a>
+      <a routerLink="/service/saas-incubation" class="category-link">SaaS Incubation</a>
+      <a routerLink="/service/enterprise-web" class="category-link">Enterprise Web</a>
+      <a routerLink="/service/mobile-development" class="category-link">Mobile Apps</a>
+      <a routerLink="/service/cloud-architecture" class="category-link">Cloud & DevOps</a>
+      <a routerLink="/about" routerLinkActive="active" class="category-link">About Us</a>
+    </div>
   </div>
 
   <!-- Mobile Overlay Menu -->
   <div class="mobile-menu" [class.open]="isMobileOpen()">
-    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="mobile-link" (click)="closeMobile()">Home</a>
-    <a routerLink="/services" routerLinkActive="active" class="mobile-link" (click)="closeMobile()">Services</a>
-    <a routerLink="/about" routerLinkActive="active" class="mobile-link" (click)="closeMobile()">About</a>
-    <a routerLink="/contact" routerLinkActive="active" class="mobile-link mobile-link-cta" (click)="closeMobile()">Contact Us</a>
+    <div class="mobile-search">
+       <input type="text" placeholder="Search..." class="mobile-search-input">
+    </div>
+    <div class="mobile-links">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="mobile-link" (click)="closeMobile()">Home</a>
+      <a routerLink="/services" routerLinkActive="active" class="mobile-link" (click)="closeMobile()">Services</a>
+      <a routerLink="/about" routerLinkActive="active" class="mobile-link" (click)="closeMobile()">About Us</a>
+      <a routerLink="/contact" class="mobile-link mobile-link-cta" (click)="closeMobile()">Sign In / Contact</a>
+    </div>
   </div>
 </nav>
+

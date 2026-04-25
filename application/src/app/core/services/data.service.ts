@@ -3,34 +3,32 @@ import { SupabaseService } from './supabase.service';
 import { from, Observable, of, catchError, map } from 'rxjs';
 import {
   Code2, Globe, Smartphone, BrainCircuit, GraduationCap,
-  Lightbulb, Users, ClipboardCheck, BookOpen, Rocket, ShieldCheck, HeartHandshake, Zap
+  Lightbulb, Users, ClipboardCheck, BookOpen, Rocket, ShieldCheck, HeartHandshake, Zap, Database, Cpu, Server
 } from 'lucide-angular';
 
 // Fallback data in case the database tables aren't set up yet
 const FALLBACK_STATS = [
-  { value: '50+', label: 'Projects Delivered', icon: Rocket },
-  { value: '100+', label: 'Happy Clients', icon: HeartHandshake },
-  { value: '5+', label: 'Years Experience', icon: ShieldCheck },
-  { value: '10', label: 'Expert Services', icon: Zap }
+  { value: '120+', label: 'Digital Products Launched', icon: Rocket },
+  { value: '50+', label: 'Enterprise Clients', icon: HeartHandshake },
+  { value: '10+', label: 'Years Engineering', icon: ShieldCheck },
+  { value: '99%', label: 'On-Time Delivery', icon: Zap }
 ];
 
 const FALLBACK_SERVICES = [
-  { id: 'website-development', title: 'Website Development', description: 'Modern, responsive websites that engage and convert your audience.', icon: Globe, color: '#6366f1', bgColor: 'rgba(99,102,241,0.1)' },
-  { id: 'software-development', title: 'Desktop Applications', description: 'Powerful cross-platform desktop apps built for performance.', icon: Code2, color: '#8b5cf6', bgColor: 'rgba(139,92,246,0.1)' },
-  { id: 'mobile-apps', title: 'Android Applications', description: 'Native Android apps providing seamless mobile experiences.', icon: Smartphone, color: '#06b6d4', bgColor: 'rgba(6,182,212,0.1)' },
-  { id: 'consulting', title: 'Software Consulting', description: 'Expert strategic guidance for your technology initiatives.', icon: BrainCircuit, color: '#f59e0b', bgColor: 'rgba(245,158,11,0.1)' },
-  { id: 'engineering-projects', title: 'Engineering Projects', description: 'Complete support for final year and academic projects.', icon: GraduationCap, color: '#10b981', bgColor: 'rgba(16,185,129,0.1)' },
-  { id: 'mentorship', title: 'Project Mentorship', description: 'One-on-one guidance throughout your entire project journey.', icon: Lightbulb, color: '#f43f5e', bgColor: 'rgba(244,63,94,0.1)' },
-  { id: 'interviews', title: 'Mock Interviews', description: 'Realistic interview prep with industry professionals.', icon: Users, color: '#6366f1', bgColor: 'rgba(99,102,241,0.1)' },
-  { id: 'internship', title: 'Internship (Certificates)', description: 'Hands-on internships with real projects and certificates.', icon: ClipboardCheck, color: '#8b5cf6', bgColor: 'rgba(139,92,246,0.1)' },
-  { id: 'tutoring', title: 'Technical Competency', description: 'Structured programs to build in-demand tech skills.', icon: BookOpen, color: '#06b6d4', bgColor: 'rgba(6,182,212,0.1)' },
-  { id: 'mock-tests', title: 'Mock Tests', description: 'Comprehensive tests to assess and sharpen your knowledge.', icon: ClipboardCheck, color: '#10b981', bgColor: 'rgba(16,185,129,0.1)' }
+  { id: 'saas-incubation', title: 'SaaS Product Incubation', description: 'Transform your vision into a highly scalable SaaS platform. We handle everything from the initial database architecture and multi-tenant logic to front-end development, secure payment gateways, and automated CI/CD deployments. Perfect for startups and enterprises launching new subscription products.', icon: Rocket, color: 'var(--brand-primary)', bgColor: 'rgba(17,45,78,0.1)' },
+  { id: 'enterprise-web', title: 'Enterprise Web Apps', description: 'We engineer secure, high-performance web applications tailored to streamline your complex business workflows. Utilizing robust modern frameworks (Angular, React, Spring Boot), we deliver responsive web portals equipped with deep analytics, real-time data sync, and enterprise-grade security.', icon: Globe, color: 'var(--brand-secondary)', bgColor: 'rgba(63,114,175,0.1)' },
+  { id: 'mobile-development', title: 'Mobile App Engineering', description: 'Native and cross-platform (Flutter/React Native) mobile experiences engineered for maximum user engagement. We optimize apps for high frame rates, low battery consumption, and seamless offline synchronization so your product excels on both iOS and Android stores.', icon: Smartphone, color: 'var(--brand-accent)', bgColor: 'rgba(219,226,239,0.5)' },
+  { id: 'cloud-architecture', title: 'Cloud Architecture & DevOps', description: 'Build a serverless or containerized foundation on AWS, GCP, or Azure. We design fault-tolerant, auto-scaling cloud architectures, coupled with comprehensive Kubernetes and Docker pipelines to ensure zero-downtime deployments and rapid iterative development.', icon: Server, color: 'var(--brand-primary)', bgColor: 'rgba(17,45,78,0.1)' },
+  { id: 'ux-ui', title: 'UI/UX Engineering', description: 'Data-driven user experiences and interface designs that decisively increase user retention and conversion. Our design team blends behavioral psychology with crisp, modern aesthetics to deliver intuitive user layouts, interactive prototypes, and comprehensive design systems.', icon: Lightbulb, color: 'var(--brand-secondary)', bgColor: 'rgba(63,114,175,0.1)' },
+  { id: 'api-integration', title: 'API & Microservices', description: 'We design robust, RESTful, and GraphQL APIs to seamlessly connect your digital ecosystem. Whether you need to decompose a monolith into scalable microservices or integrate with legacy third-party CRM and ERP databases, we ensure flawless data communication.', icon: Code2, color: 'var(--brand-primary)', bgColor: 'rgba(17,45,78,0.1)' },
+  { id: 'ai-ml-solutions', title: 'AI & Data Solutions', description: 'Incorporate intelligent data models into your application. From generative AI integrations, NLP chatbots, to predictive analytics engines, we help you leverage machine learning to automate operations and extract actionable insights from your data warehouse.', icon: BrainCircuit, color: 'var(--brand-secondary)', bgColor: 'rgba(63,114,175,0.1)' },
+  { id: 'legacy-modernization', title: 'Legacy Modernization', description: 'Revitalize aging codebases without disrupting active business operations. We safely migrate legacy monolithic architectures into modern cloud-native frameworks, enhancing execution speeds, security posture, and overall maintainability for the future.', icon: Database, color: 'var(--brand-accent)', bgColor: 'rgba(219,226,239,0.5)' }
 ];
 
 const FALLBACK_TESTIMONIALS = [
-  { name: 'Priya Sharma', role: 'CEO, FinEdge Pvt Ltd', text: 'Arc-i-Tech transformed our business with a stunning website and mobile app. Their team is professional, responsive, and delivered beyond our expectations.', rating: 5 },
-  { name: 'Rahul Mehta', role: 'Final Year Student, VIT', text: 'The project mentorship program was incredibly helpful. My final year project was a huge success thanks to their expert guidance and hands-on support.', rating: 5 },
-  { name: 'Anita Desai', role: 'HR Manager, TechCorp', text: 'We hired several interns through Arc-i-Tech\'s program. They came in with solid skills and great work ethics. Highly recommended!', rating: 5 }
+  { name: 'Sarah Jenkins', role: 'CTO, OmniTech Solutions', text: 'Arc-i-Tech developed our core SaaS product from scratch. Their engineering rigor and communication throughout the project was outstanding. We hit our launch deadline perfectly.', rating: 5 },
+  { name: 'David Chen', role: 'Founder, CloudSync', text: 'The team at Arc-i-Tech doesn\'t just write code; they think about product strategy. They helped us avoid massive technical debt right from the architecture phase.', rating: 5 },
+  { name: 'Elena Rodriguez', role: 'VP of Product, FinServe', text: 'We partnered with Arc-i-Tech to modernize our legacy banking portal. The UI/UX overhaul and secure cloud migration completely transformed our customer experience.', rating: 5 }
 ];
 
 @Injectable({
@@ -52,7 +50,9 @@ export class DataService {
     'Lightbulb': Lightbulb,
     'Users': Users,
     'ClipboardCheck': ClipboardCheck,
-    'BookOpen': BookOpen
+    'Database': Database,
+    'Cpu': Cpu,
+    'Server': Server
   };
 
   constructor(private supabase: SupabaseService) { }

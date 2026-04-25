@@ -56,24 +56,22 @@ CREATE POLICY "Allow anonymous to insert contact messages" ON public.contact_mes
 -- ==========================================
 
 INSERT INTO public.stats (value, label, icon_name) VALUES
-('50+', 'Projects Delivered', 'Rocket'),
-('100+', 'Happy Clients', 'HeartHandshake'),
-('5+', 'Years Experience', 'ShieldCheck'),
-('10', 'Expert Services', 'Zap');
+('120+', 'Digital Products Launched', 'Rocket'),
+('50+', 'Enterprise Clients', 'HeartHandshake'),
+('10+', 'Years Engineering', 'ShieldCheck'),
+('99%', 'On-Time Delivery', 'Zap');
 
 INSERT INTO public.services (id, title, description, icon_name, color, bg_color, display_order) VALUES
-('website-development', 'Website Development', 'Modern, responsive websites that engage and convert your audience.', 'Globe', '#6366f1', 'rgba(99,102,241,0.1)', 1),
-('software-development', 'Desktop Applications', 'Powerful cross-platform desktop apps built for performance.', 'Code2', '#8b5cf6', 'rgba(139,92,246,0.1)', 2),
-('mobile-apps', 'Android Applications', 'Native Android apps providing seamless mobile experiences.', 'Smartphone', '#06b6d4', 'rgba(6,182,212,0.1)', 3),
-('consulting', 'Software Consulting', 'Expert strategic guidance for your technology initiatives.', 'BrainCircuit', '#f59e0b', 'rgba(245,158,11,0.1)', 4),
-('engineering-projects', 'Engineering Projects', 'Complete support for final year and academic projects.', 'GraduationCap', '#10b981', 'rgba(16,185,129,0.1)', 5),
-('mentorship', 'Project Mentorship', 'One-on-one guidance throughout your entire project journey.', 'Lightbulb', '#f43f5e', 'rgba(244,63,94,0.1)', 6),
-('interviews', 'Mock Interviews', 'Realistic interview prep with industry professionals.', 'Users', '#6366f1', 'rgba(99,102,241,0.1)', 7),
-('internship', 'Internship (Certificates)', 'Hands-on internships with real projects and certificates.', 'ClipboardCheck', '#8b5cf6', 'rgba(139,92,246,0.1)', 8),
-('tutoring', 'Technical Competency', 'Structured programs to build in-demand tech skills.', 'BookOpen', '#06b6d4', 'rgba(6,182,212,0.1)', 9),
-('mock-tests', 'Mock Tests', 'Comprehensive tests to assess and sharpen your knowledge.', 'ClipboardCheck', '#10b981', 'rgba(16,185,129,0.1)', 10);
+('saas-incubation', 'SaaS Product Incubation', 'Transform your vision into a highly scalable SaaS platform. We handle everything from the initial database architecture and multi-tenant logic to front-end development, secure payment gateways, and automated CI/CD deployments. Perfect for startups and enterprises launching new subscription products.', 'Rocket', '#112d4e', 'rgba(17,45,78,0.1)', 1),
+('enterprise-web', 'Enterprise Web Apps', 'We engineer secure, high-performance web applications tailored to streamline your complex business workflows. Utilizing robust modern frameworks (Angular, React, Spring Boot), we deliver responsive web portals equipped with deep analytics, real-time data sync, and enterprise-grade security.', 'Globe', '#3F72AF', 'rgba(63,114,175,0.1)', 2),
+('mobile-development', 'Mobile App Engineering', 'Native and cross-platform (Flutter/React Native) mobile experiences engineered for maximum user engagement. We optimize apps for high frame rates, low battery consumption, and seamless offline synchronization so your product excels on both iOS and Android stores.', 'Smartphone', '#DBE2EF', 'rgba(219,226,239,0.5)', 3),
+('cloud-architecture', 'Cloud Architecture & DevOps', 'Build a serverless or containerized foundation on AWS, GCP, or Azure. We design fault-tolerant, auto-scaling cloud architectures, coupled with comprehensive Kubernetes and Docker pipelines to ensure zero-downtime deployments and rapid iterative development.', 'Server', '#112d4e', 'rgba(17,45,78,0.1)', 4),
+('ux-ui', 'UI/UX Engineering', 'Data-driven user experiences and interface designs that decisively increase user retention and conversion. Our design team blends behavioral psychology with crisp, modern aesthetics to deliver intuitive user layouts, interactive prototypes, and comprehensive design systems.', 'Lightbulb', '#3F72AF', 'rgba(63,114,175,0.1)', 5),
+('api-integration', 'API & Microservices', 'We design robust, RESTful, and GraphQL APIs to seamlessly connect your digital ecosystem. Whether you need to decompose a monolith into scalable microservices or integrate with legacy third-party CRM and ERP databases, we ensure flawless data communication.', 'Code2', '#112d4e', 'rgba(17,45,78,0.1)', 6),
+('ai-ml-solutions', 'AI & Data Solutions', 'Incorporate intelligent data models into your application. From generative AI integrations, NLP chatbots, to predictive analytics engines, we help you leverage machine learning to automate operations and extract actionable insights from your data warehouse.', 'BrainCircuit', '#3F72AF', 'rgba(63,114,175,0.1)', 7),
+('legacy-modernization', 'Legacy Modernization', 'Revitalize aging codebases without disrupting active business operations. We safely migrate legacy monolithic architectures into modern cloud-native frameworks, enhancing execution speeds, security posture, and overall maintainability for the future.', 'Database', '#DBE2EF', 'rgba(219,226,239,0.5)', 8);
 
 INSERT INTO public.testimonials (name, role, text, rating) VALUES
-('Priya Sharma', 'CEO, FinEdge Pvt Ltd', 'Arc-i-Tech transformed our business with a stunning website and mobile app. Their team is professional, responsive, and delivered beyond our expectations.', 5),
-('Rahul Mehta', 'Final Year Student, VIT', 'The project mentorship program was incredibly helpful. My final year project was a huge success thanks to their expert guidance and hands-on support.', 5),
-('Anita Desai', 'HR Manager, TechCorp', 'We hired several interns through Arc-i-Tech''s program. They came in with solid skills and great work ethics. Highly recommended!', 5);
+('Sarah Jenkins', 'CTO, OmniTech Solutions', 'Arc-i-Tech developed our core SaaS product from scratch. Their engineering rigor and communication throughout the project was outstanding. We hit our launch deadline perfectly.', 5),
+('David Chen', 'Founder, CloudSync', 'The team at Arc-i-Tech doesn''t just write code; they think about product strategy. They helped us avoid massive technical debt right from the architecture phase.', 5),
+('Elena Rodriguez', 'VP of Product, FinServe', 'We partnered with Arc-i-Tech to modernize our legacy banking portal. The UI/UX overhaul and secure cloud migration completely transformed our customer experience.', 5);
