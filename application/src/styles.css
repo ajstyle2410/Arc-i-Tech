@@ -97,6 +97,17 @@ body {
   background-clip: text;
 }
 
+/* ─── Arc-i-Tech Brand Size Overrides (used with <app-brand-name>) ─── */
+/* Hero heading — inherits h1 size naturally; no extra class needed     */
+.hero-brand-size {
+  font-size: inherit;
+}
+
+/* Footer brand name size */
+.footer-brand-name-text {
+  font-size: 1.25rem;
+}
+
 /* ─── Glass Card ─── */
 .glass-card {
   background: rgba(255,255,255,0.08);

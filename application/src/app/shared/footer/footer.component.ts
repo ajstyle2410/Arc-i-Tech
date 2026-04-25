@@ -1,11 +1,12 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { LucideAngularModule, Hexagon, Mail, Phone, MapPin, Linkedin, Github, Twitter } from 'lucide-angular';
+import { BrandNameComponent } from '../../common/brand-name/brand-name.component';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [RouterModule, LucideAngularModule],
+  imports: [RouterModule, LucideAngularModule, BrandNameComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.css'

@@ -35,32 +35,29 @@
 }
 
 .brand-icon-wrap {
-  width: 40px;
-  height: 40px;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  width: 44px;
+  height: 44px;
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  background: transparent;
+  flex-shrink: 0;
 }
 
 .brand-icon {
-  width: 22px;
-  height: 22px;
-  color: white;
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
 }
 
-.brand-name {
+/* Brand-name component size inside navbar */
+.navbar-brand-name {
   font-size: 1.35rem;
-  font-weight: 800;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  letter-spacing: -0.3px;
 }
 
-/* Nav Links */
+
 .nav-links {
   display: flex;
   align-items: center;

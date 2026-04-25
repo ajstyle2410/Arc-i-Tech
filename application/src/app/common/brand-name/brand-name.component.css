@@ -1,0 +1,33 @@
+/* BrandNameComponent styles
+   The root element inherits font-size/weight from the parent or via [className].
+   Only brand-specific overrides live here.
+*/
+
+.brand-name-root {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0;
+  font-weight: 800;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.3px;
+  white-space: nowrap;
+}
+
+/* Italic "i" — stays on the gradient */
+.brand-i {
+  font-style: italic;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Red dot — overrides the transparent gradient fill */
+/* .brand-dot {
+  -webkit-text-fill-color: #e53e3e;
+  color: #e53e3e;
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+  font-style: normal;
+} */

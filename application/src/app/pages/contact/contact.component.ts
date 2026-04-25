@@ -8,6 +8,7 @@ import {
 } from 'lucide-angular';
 import { NavbarComponent } from '../../shared/navbar/navbar.component';
 import { FooterComponent } from '../../shared/footer/footer.component';
+import { DataService } from '../../core/services/data.service';
 
 @Component({
   selector: 'app-contact',
@@ -51,17 +52,28 @@ export class ContactComponent {
   submitted = false;
   isLoading = false;
 
-  onSubmit() {
+  constructor(private dataService: DataService) {}
+
+  async onSubmit() {
     if (this.formData.name && this.formData.email && this.formData.message) {
       this.isLoading = true;
-      setTimeout(() => {
-        this.isLoading = false;
+      const success = await this.dataService.submitContactForm(
+        this.formData.name,
+        this.formData.email,
+        this.formData.service,
+        this.formData.message
+      );
+      
+      this.isLoading = false;
+      if (success) {
         this.submitted = true;
         setTimeout(() => {
           this.formData = { name: '', email: '', phone: '', service: '', message: '' };
           this.submitted = false;
         }, 4000);
-      }, 1000);
+      } else {
+        alert("There was an error sending your message. Please try again.");
+      }
     }
   }
 }

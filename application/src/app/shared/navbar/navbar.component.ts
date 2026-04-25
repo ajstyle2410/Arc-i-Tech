@@ -2,11 +2,12 @@ import { Component, HostListener, signal, CUSTOM_ELEMENTS_SCHEMA } from '@angula
 import { CommonModule } from '@angular/common';
 import { RouterModule, RouterLinkActive } from '@angular/router';
 import { LucideAngularModule, Hexagon, Menu, X } from 'lucide-angular';
+import { BrandNameComponent } from '../../common/brand-name/brand-name.component';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [CommonModule, RouterModule, RouterLinkActive, LucideAngularModule],
+  imports: [CommonModule, RouterModule, RouterLinkActive, LucideAngularModule, BrandNameComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
